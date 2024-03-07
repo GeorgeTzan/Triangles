@@ -1,15 +1,18 @@
-import random
+import math
 import statistics
 import itertools
 from utils import *
 
-points = [(random.randint(-100, 100), random.randint(-100, 100)) for _ in range(100)]
+points = []
+with open("points.txt", "r") as file:
+    for line in file:
+        x, y = map(int, line.strip().split())
+        points.append((x, y))
 
 triangles = []
 
 for triangle in itertools.combinations(points, 3):
     triangles.append(triangle)
-
 
 valid_triangles = []
 triangle_areas = []
@@ -19,7 +22,7 @@ for triangle in triangles:
         triangle_areas.append(area)
         valid_triangles.append(triangle)
 
-print(f"Valid Trigwna:{round(len(valid_triangles),2)}")
+print(f"Valid Triangles: {len(valid_triangles)}")
 meanFunct = mean(triangle_areas)
 medianFunct = median(triangle_areas)
 stdevFunct = stdev(triangle_areas)
@@ -28,12 +31,12 @@ meanStats = statistics.mean(triangle_areas)
 medianStats = statistics.median(triangle_areas)
 stdevStats = statistics.stdev(triangle_areas)
 
-print("Apotelesmata me th xrhsh twn synarthsewn:")
+print("Results using custom functions:")
 print(
     f"Mean area: {meanFunct:.2f}\nMedian area: {medianFunct:.2f}\nSt deviation areas: {stdevFunct:.2f}"
 )
 
-print("Apotelesmata me th xrhsh Module statistics:")
+print("Results using Module statistics:")
 print(
     f"Mean area: {meanStats:.2f}\nMedian area: {medianStats:.2f}\nSt deviation areas: {stdevStats:.2f}"
 )

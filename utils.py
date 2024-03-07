@@ -13,11 +13,11 @@ def triangle_area(a, b, c):
     side3 = measure_distance(a, c)
 
     if ((b[0] - a[0]) * (c[1] - a[1]) - (c[0] - a[0]) * (b[1] - a[1])) == 0:
-        return -1
+        return 0
 
     s = (side1 + side2 + side3) / 2
 
-    area = math.sqrt(s * (s - side1) * (s - side3) * (s - side2))
+    area = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
     return area
 
 
