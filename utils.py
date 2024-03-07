@@ -39,6 +39,6 @@ def valuesRange(values):
 
 
 def stdev(values):
-    means = mean(values)
-    variance = sum((x - means) ** 2 for x in values) / len(values)
+    meanValues = mean(values)
+    variance = sum((x - meanValues) ** 2 for x in values) / len(values)
     return math.sqrt(variance)
