@@ -17,7 +17,7 @@ def triangle_area(a, b, c):
 
     s = (side1 + side2 + side3) / 2
 
-    area = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
+    area = math.sqrt(s * (s - side1) * (s - side3) * (s - side2))
     return area
 
 
